@@ -1,0 +1,32 @@
+Build a website similar to David Bragg's Blinker used car search site at:
+    https://dev.d24jig8s1lr7n9.amplifyapp.com/
+Only need a single page, make it look nice, if stuck on styling, copying the ref site is okay.
+Does not have to be cars.
+Include at least one filtering option for sifting through the relevant API.
+Free movie based API at:
+    https://omdbapi.com/
+Can select any other substantially populated real world API, preferrably public and free.
+Must include a search input with form use.
+Results page must be clearly marked as results page with search query
+    on search, show only the first 6 results
+Include a skeleton loading state.
+
+Public free APIs listed at:
+    https://github.com/public-apis/public-apis
+
+
+Selected API for project: 
+    https://ffxivcollect.com/api/
+
+    Sub-API topics to specialize into for project:
+        mounts
+        minions
+        bardings
+        relics
+        hairstyles
+        emotes
+        titles
+        users
+            potential user lodestone ID api:
+                https://api.kalilistic.io/v1/lodestone/player?playerName=[name]&worldName=[server]
+                https://xivapi.com/character/search?name=[name]&server=[server]
