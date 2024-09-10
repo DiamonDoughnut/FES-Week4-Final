@@ -33,9 +33,8 @@
                             <button class="search__type--id">Multiverse ID</button>
                         </div>
                         <div class="search__form">
-                            <input type="text" class="search__form--entry" placeholder="?">
-                            <input  type="checkbox" class="search__form--match" value="match"></inp>
-                            <label for="match">Exact Match?</label>
+                            <input type="text" class="search__form--entry" placeholder="Search by Card Name">
+                            <button class="search__btn">Search</button>
                         </div>
                     </div>
                 </div>
@@ -44,125 +43,11 @@
         <section id="cards">
             <div class="row">
                 <div class="container cards__container">
-                    <div class="card__wrapper">
-                        <figure class="card__image">
-                            <img class="card__image" src="https://cards.scryfall.io/normal/front/b/3/b347b543-0363-4759-90c9-afb12ee52bf0.jpg?1562932795" alt="card__image">
-                        </figure>
-                        <div class="card__info">
-                            <div class="card__info--header">
-                                <h3 class="card__name">
-                                    Feral Hydra
-                                </h3>
-                            </div>
-                            <div class="card__info--types">
-                                <h4 class="card--types">Creature -- Hydra Beast</h4>
-                            </div>
-                            <div class="card__info--filler">
-                                <div class="mana__cost">
-                                    <i class="ms ms-x ms-cost ms-shadow"></i>
-                                    <i class="ms ms-g ms-cost ms-shadow"></i>
-                                </div>
-                                <p class="card__info--stats">0/0</p>
-                            </div>
-                        </div>
+                    <div class="cards__loading">
+                        <i class="fas fa-spinner"></i>
                     </div>
-                    <div class="card__wrapper">
-                        <figure class="card__image">
-                            <img class="card__image" src="./assets/mtg_back.png" alt="card__image">
-                        </figure>
-                        <div class="card__info">
-                            <div class="card__info--header">
-                                <h3 class="card__name">
-                                    Name here
-                                </h3>
-                            </div>
-                            <div class="card__info--types">
-                                <h4 class="card--types">Types: Subtypes</h4>
-                            </div>
-                            <div class="card__info--filler">
-                                <p class="card__info--mana">Mana Cost</p>
-                                <p class="card__info--stats">P/T</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card__wrapper">
-                        <figure class="card__image">
-                            <img class="card__image" src="./assets/mtg_back.png" alt="card__image">
-                        </figure>
-                        <div class="card__info">
-                            <div class="card__info--header">
-                                <h3 class="card__name">
-                                    Name here
-                                </h3>
-                            </div>
-                            <div class="card__info--types">
-                                <h4 class="card--types">Types: Subtypes</h4>
-                            </div>
-                            <div class="card__info--filler">
-                                <p class="card__info--mana">Mana Cost</p>
-                                <p class="card__info--stats">P/T</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card__wrapper">
-                        <figure class="card__image">
-                            <img class="card__image" src="./assets/mtg_back.png" alt="card__image">
-                        </figure>
-                        <div class="card__info">
-                            <div class="card__info--header">
-                                <h3 class="card__name">
-                                    Name here
-                                </h3>
-                            </div>
-                            <div class="card__info--types">
-                                <h4 class="card--types">Types: Subtypes</h4>
-                            </div>
-                            <div class="card__info--filler">
-                                <p class="card__info--mana">Mana Cost</p>
-                                <p class="card__info--stats">P/T</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card__wrapper">
-                        <figure class="card__image">
-                            <img class="card__image" src="./assets/mtg_back.png" alt="card__image">
-                        </figure>
-                        <div class="card__info">
-                            <div class="card__info--header">
-                                <h3 class="card__name">
-                                    Name here
-                                </h3>
-                            </div>
-                            <div class="card__info--types">
-                                <h4 class="card--types">Types: Subtypes</h4>
-                            </div>
-                            <div class="card__info--filler">
-                                <p class="card__info--mana">Mana Cost</p>
-                                <p class="card__info--stats">P/T</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card__wrapper">
-                        <figure class="card__image">
-                            <img class="card__image" src="./assets/mtg_back.png" alt="card__image">
-                        </figure>
-                        <div class="card__info">
-                            <div class="card__info--header">
-                                <h3 class="card__name">
-                                    Name here
-                                </h3>
-                            </div>
-                            <div class="card__info--types">
-                                <h4 class="card--types">Types: Subtypes</h4>
-                            </div>
-                            <div class="card__info--filler">
-                                <p class="card__info--mana">Mana Cost</p>
-                                <p class="card__info--stats">P/T</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="load-more">Load More Cards</button>
                 </div>
+                <button class="load-more">Load More Cards</button>
             </div>
         </section>
         <section id="menu--fixed">
@@ -193,13 +78,13 @@
                             </div>
                         </div>
                         <div class="color__match">
-                            <input type="checkbox" class="color-match" value="match-all"></input>
-                            <label for="match-all">Match All?</label>
+                            <div type="checkbox" class="color-match" value="match-all"></div>
                         </div>                        
                     </div>
                     <div class="types__wrapper filter__wrapper">
                         <h3 class="types--name filter--title">Type:</h3>
                         <select name="types" class="type__selector" id="type">
+                            <option value="null">---</option>
                             <option value="creature">Creature</option>
                             <option value="instant">Instant</option>
                             <option value="sorcery">Sorcery</option>
@@ -219,25 +104,26 @@
                     <div class="rarity__wrapper filter__wrapper">
                         <h3 class="rarity__name filter--title">Rarity</h3>
                         <div class="rarity__entry">
-                            <input type="checkbox" class="rarity" value="common">
+                            <input name="rarity" type="radio" class="rarity common" value="common">
                             <label for="common" class="rarity__label">Common</label>
                         </div>
                         <div class="rarity__entry">
-                            <input type="checkbox" class="rarity" value="uncommon">
+                            <input name="rarity" type="radio" class="rarity uncommon" value="uncommon">
                             <label for="uncommon" class="rarity__label">Uncommon</label>
                         </div>
                         <div class="rarity__entry">
-                            <input type="checkbox" class="rarity" value="rare">
+                            <input name="rarity" type="radio" class="rarity rare" value="rare">
                             <label for="rare" class="rarity__label">Rare</label>
                         </div>
                         <div class="rarity__entry">
-                            <input type="checkbox" class="rarity" value="mythic">
+                            <input name="rarity" type="radio" class="rarity mythic" value="mythic">
                             <label for="mythic" class="rarity__label">Mythic</label>
                         </div>
                     </div>
                     <div class="power__wrapper filter__wrapper">
                         <h3 class="power--names filter--title">Power:</h3>
                         <select name="powers" class="power__selector" id="power">
+                            <option value="null">---</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -261,6 +147,7 @@
                     <div class="toughness__wrapper filter__wrapper">
                         <h3 class="toughness--names filter--title">Toughness:</h3>
                         <select name="toughnesses" id="toughness" class="toughness__selector">
+                            <option value="null">---</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -289,11 +176,9 @@
         </section>
         <section id="filters--fixed">
             <div class="row">
-                <div class="container">
-                    <div class="filter">
-                        <button class="filter__clear"><i class="fa-solid fa-x filter__delete"></i></button>
-                        <h5 class="filter__name">Filter Here</h5>
-                    </div>
+                <h3 class="filter__list--title">Active Filters:</h3>
+                <div class="container filter__container">
+                    
                 </div>
             </div>
         </section>
