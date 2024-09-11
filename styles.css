@@ -135,7 +135,7 @@ h1{
 
 .search--type{
     padding: 8px 8px;
-    width: 15%;
+    width: 20%;
     border-radius: 16px;
 }
 
@@ -555,10 +555,17 @@ footer{
 
     .search__btn{
         width: 40%;
-
+        margin-top: 4px;
     }
 
     .search__types{
         transform: translateX(20%);
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search--type{
+        width: 40%;
+        margin: 4px;
     }
 }
