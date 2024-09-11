@@ -47,6 +47,18 @@ filterBtn.addEventListener('click', () => {
     const filter = buildSearchQuery();
     variableApi += filter;
     cardLoadingState.style.display = 'flex'
+    commonCheckbox.checked = false;
+    uncommonCheckbox.checked = false;
+    rareCheckbox.checked = false;
+    mythicCheckbox.checked = false;
+    whiteCheckbox.checked = false;
+    blueCheckbox.checked = false;
+    blackCheckbox.checked = false;
+    redCheckbox.checked = false;
+    greenCheckbox.checked = false;
+    typeDropdown.value = 'null';
+    powerDropdown.value = 'null';
+    toughnessDropdown.value = 'null';
     renderCards();
 });
 
@@ -160,7 +172,7 @@ const buildSearchQuery = () => {
         filters = filters + '&rarity=' + rarityVar;
         filterContainer.innerHTML += `<div class="filter">
                         <h3 class='filter__title'>Rarity: </h3>
-                        <h5 class="filter__name">${rarityVar.charAt(0).toUpperCase() + rarityVar.slice(1)}</h5>
+                        <h5 class="filter__name ${rarityVar}__label">${rarityVar.charAt(0).toUpperCase() + rarityVar.slice(1)}</h5>
                     </div>`
     }
     if(powerVar !== 'null'){
@@ -220,7 +232,7 @@ async function renderCards(filterArr){
             let manaCost = card.manaCost ? card.manaCost.replaceAll('{', "").replaceAll('}', '').split("") : '';
             cardUrl = card.imageUrl;
             let cardName = card.name;
-            cardName = card.name.slice(0, 22) + '&shy;' + card.name.slice(22)
+            cardName = card.name.slice(0, 20) + '&shy;' + card.name.slice(20)
             cardsContainer.innerHTML += `<div class="card__wrapper">
                         <figure class="card__image">
                             <img class="card__image" src="${cardUrl}" alt="card__image">

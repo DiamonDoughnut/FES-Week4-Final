@@ -228,6 +228,7 @@ h1{
     width: 100%;
     border: 1px solid black;
     padding-bottom: 8px;
+    padding-left: 8px;
     border-radius: 15px;
     height: calc(450px - 325px);
     display: flex;
