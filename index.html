@@ -27,10 +27,10 @@
                 <div class="container">
                     <div class="search__wrapper">
                         <div class="search__types">
-                            <button class="search__type--name">Card Name</button>
-                            <button class="search__type--subtype">Subtype</button>
-                            <button class="search__type--cmc">Converted Mana Cost</button>
-                            <button class="search__type--id">Multiverse ID</button>
+                            <button class="search--type search__type--name">Card Name</button>
+                            <button class="search--type search__type--subtype">Subtype</button>
+                            <button class="search--type search__type--cmc">Converted Mana Cost</button>
+                            <button class="search--type search__type--id">Multiverse ID</button>
                         </div>
                         <div class="search__form">
                             <input type="text" class="search__form--entry" placeholder="Search by Card Name">
@@ -58,28 +58,25 @@
                         <div class="colors">
                             <div class="color__wrapper">
                                 <input type="checkbox" class="color white" value="white"></input>
-                            <label for="white">White</label>
+                            <label class="label__white" for="white">White</label>
                             </div>
                             <div class="color__wrapper">
                                 <input type="checkbox" class="color blue" value="blue"></input>
-                            <label for="blue">Blue</label>
+                            <label class="label__blue" for="blue">Blue</label>
                             </div>
                             <div class="color__wrapper">
                                 <input type="checkbox" class="color black" value="black"></input>
-                            <label for="black">Black</label>
+                            <label class="label__black" for="black">Black</label>
                             </div>
                             <div class="color__wrapper">
                                 <input type="checkbox" class="color red" value="red"></input>
-                            <label for="red">Red</label>
+                            <label class="label__red" for="red">Red</label>
                             </div>
                             <div class="color__wrapper">
                                 <input type="checkbox" class="color green" value="green"></input>
-                            <label for="green">Green</label>
+                            <label class="label__green" for="green">Green</label>
                             </div>
-                        </div>
-                        <div class="color__match">
-                            <div type="checkbox" class="color-match" value="match-all"></div>
-                        </div>                        
+                        </div>                      
                     </div>
                     <div class="types__wrapper filter__wrapper">
                         <h3 class="types--name filter--title">Type:</h3>
@@ -105,19 +102,19 @@
                         <h3 class="rarity__name filter--title">Rarity</h3>
                         <div class="rarity__entry">
                             <input name="rarity" type="radio" class="rarity common" value="common">
-                            <label for="common" class="rarity__label">Common</label>
+                            <label for="common" class="rarity__label common__label">Common</label>
                         </div>
                         <div class="rarity__entry">
                             <input name="rarity" type="radio" class="rarity uncommon" value="uncommon">
-                            <label for="uncommon" class="rarity__label">Uncommon</label>
+                            <label for="uncommon" class="rarity__label uncommon__label">Uncommon</label>
                         </div>
                         <div class="rarity__entry">
                             <input name="rarity" type="radio" class="rarity rare" value="rare">
-                            <label for="rare" class="rarity__label">Rare</label>
+                            <label for="rare" class="rarity__label rare__label">Rare</label>
                         </div>
                         <div class="rarity__entry">
                             <input name="rarity" type="radio" class="rarity mythic" value="mythic">
-                            <label for="mythic" class="rarity__label">Mythic</label>
+                            <label for="mythic" class="rarity__label mythic__label">Mythic</label>
                         </div>
                     </div>
                     <div class="power__wrapper filter__wrapper">

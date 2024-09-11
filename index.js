@@ -6,7 +6,6 @@ const blueCheckbox = document.querySelector('.blue');
 const blackCheckbox = document.querySelector('.black');
 const redCheckbox = document.querySelector('.red');
 const greenCheckbox = document.querySelector('.green');
-const matchColor = document.querySelector('.color-match');
 
 const typeDropdown = document.querySelector('.type__selector');
 
@@ -103,21 +102,14 @@ const buildSearchQuery = () => {
     let typeVar = typeDropdown.value;
     let powerVar = powerDropdown.value;
     let toughVar = toughnessDropdown.value;
+    let colorFilter;
     if(whiteCheckbox.checked || blueCheckbox.checked || blackCheckbox.checked || redCheckbox.checked || greenCheckbox.checked){
         const white = whiteCheckbox.checked;
         const blue = blueCheckbox.checked;
         const black = blackCheckbox.checked;
         const red = redCheckbox.checked;
         const green = greenCheckbox.checked;
-        if(matchColor.checked){
-            whiteVar = white ? 'w,' : '';
-            blueVar = blue ? 'u,' : '';
-            blackVar = black ? 'b,' : '';
-            redVar = red ? 'r,' : '';
-            greenVar = green ? 'g' : '';
-            colorVar = whiteVar + blueVar + blackVar + redVar + greenVar
-            colorVar = green ? colorVar : colorVar.substring(0, colorVar.length - 1);
-        } else {
+        
             whiteVar = white ? 'w|' : '';
             blueVar = blue ? 'u|' : '';
             blackVar = black ? 'b|' : '';
@@ -125,7 +117,20 @@ const buildSearchQuery = () => {
             greenVar = green ? 'g' : '';
             colorVar = whiteVar + blueVar + blackVar + redVar + greenVar
             colorVar = green ? colorVar : colorVar.substring(0, colorVar.length - 1);
-        }
+
+        colorFilter = colorVar;
+        colorFilter = colorFilter.split('|');
+        colorFilter = colorFilter.map(color => {
+            let fullString = '';
+            color === 'w' ? fullString += "White" : fullString += '';
+            color === 'u' ? fullString += "Blue" : fullString += '';
+            color === 'b' ? fullString += "Black" : fullString += '';
+            color === 'r' ? fullString += "Red" : fullString += '';
+            color === 'g' ? fullString += "Green" : fullString += '';
+            return fullString;
+        })
+                console.log(colorFilter)
+
     }
     if(commonCheckbox.checked || uncommonCheckbox.checked || rareCheckbox.checked || mythicCheckbox.checked){
         commonVar = commonCheckbox.checked ? 'common' : null;
@@ -134,52 +139,48 @@ const buildSearchQuery = () => {
         mythicVar = mythicCheckbox ? 'mythic' : null;
         rarityVar = commonVar || uncommonVar || rareVar || mythicVar;
     }
-    
-    if(typeVar !== 'null'){
-        filters = filters + "&types=" + typeVar;
-        filterContainer.innerHTML += `<div class="filter">
-                        <button class="filter__clear"><i class="fa-solid fa-x filter__delete"></i></button>
-                        <h5 class="filter__name">${typeVar}</h5>
-                    </div>`
-    }
-    if(powerVar !== 'null'){
-        filters = filters + '&power=' + powerVar;
-        filterContainer.innerHTML += `<div class="filter">
-                        <button class="filter__clear"><i class="fa-solid fa-x filter__delete"></i></button>
-                        <h5 class="filter__name">${powerVar}</h5>
-                    </div>`
-    }
-    if(toughVar !== 'null'){
-        filters = filters + '&toughness=' + toughVar;
-        filterContainer.innerHTML += `<div class="filter">
-                        <button class="filter__clear"><i class="fa-solid fa-x filter__delete"></i></button>
-                        <h5 class="filter__name">${toughVar}</h5>
-                    </div>`
-    }
+
     if(colorVar !== 'null'){
         filters = filters + '&colors=' + colorVar;
         filterContainer.innerHTML += `<div class="filter">
-                        <button class="filter__clear"><i class="fa-solid fa-x filter__delete"></i></button>
-                        <h5 class="filter__name">${colorVar}</h5>
+                        <h3 class='filter__title'>Color: </h3>
+                        ${colorFilter.map(color => {
+                            return `<h5 class="filter__name label__${color.toLowerCase()}">${color}</h5>`
+                        }).join('')} 
+                    </div>`
+    }
+    if(typeVar !== 'null'){
+        filters = filters + "&types=" + typeVar;
+        filterContainer.innerHTML += `<div class="filter">
+                        <h3 class='filter__title'>Type: </h3>
+                        <h5 class="filter__name">${typeVar.charAt(0).toUpperCase() + typeVar.slice(1)}</h5>
                     </div>`
     }
     if(rarityVar !== 'null'){
         filters = filters + '&rarity=' + rarityVar;
         filterContainer.innerHTML += `<div class="filter">
-                        <button class="filter__clear"><i class="fa-solid fa-x filter__delete"></i></button>
-                        <h5 class="filter__name">${rarityVar}</h5>
+                        <h3 class='filter__title'>Rarity: </h3>
+                        <h5 class="filter__name">${rarityVar.charAt(0).toUpperCase() + rarityVar.slice(1)}</h5>
                     </div>`
     }
+    if(powerVar !== 'null'){
+        filters = filters + '&power=' + powerVar;
+        filterContainer.innerHTML += `<div class="filter">
+                  <h3 class='filter__title'>Power: </h3>
+                  <h5 class="filter__name">${powerVar}</h5>
+                    </div>`
+    }
+    if(toughVar !== 'null'){
+        filters = filters + '&toughness=' + toughVar;
+        filterContainer.innerHTML += `<div class="filter">
+                                <h3 class='filter__title'>Toughness: </h3>
+                        <h5 class="filter__name">${toughVar}</h5>
+                    </div>`
+    }    
     return filters;
 }
 
-const buildOrColorVar = (matchBoolean) => {
-    if(color[0] && !matchBoolean){
-        return color.flat().split(',').join('|');
-    } else if(color[0] && !matchBoolean){
-        return color.flat();
-    }
-}
+
 
 const renderManaSymbols = (manaCostString) => {
     let manaHTML = ''
@@ -218,6 +219,8 @@ async function renderCards(filterArr){
         } else {
             let manaCost = card.manaCost ? card.manaCost.replaceAll('{', "").replaceAll('}', '').split("") : '';
             cardUrl = card.imageUrl;
+            let cardName = card.name;
+            cardName = card.name.slice(0, 22) + '&shy;' + card.name.slice(22)
             cardsContainer.innerHTML += `<div class="card__wrapper">
                         <figure class="card__image">
                             <img class="card__image" src="${cardUrl}" alt="card__image">
@@ -225,10 +228,8 @@ async function renderCards(filterArr){
                         <div class="card__info">
                             <div class="card__info--header">
                                 <h3 class="card__name">
-                                    ${card.name}
+                                    ${cardName}
                                 </h3>
-                            </div>
-                            <div class="card__info--types">
                                 <h4 class="card--types">${card.type}</h4>
                             </div>
                             <div class="card__info--filler">
