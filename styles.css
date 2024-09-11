@@ -397,25 +397,25 @@ h1{
 }
 
 .common__label{
-    background: -webkit-linear-gradient(#fff, #333);
+    background: -webkit-linear-gradient(#99a1a7, #eee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .rare__label{
-    background: -webkit-linear-gradient(#b87803, #f3bf13);
+    background: -webkit-linear-gradient(#8f5f06, #f3bf13);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .mythic__label{
-    background: -webkit-linear-gradient(#ca3900, #ff7707);
+    background: -webkit-linear-gradient(#8a2801, #ff7707);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .uncommon__label{
-    background: -webkit-linear-gradient(#99a1a7, #eee);
+    background: -webkit-linear-gradient(#fff, #474747);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
