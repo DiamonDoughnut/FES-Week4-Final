@@ -500,6 +500,11 @@ h1{
     width: 20%;
 }
 
+.filters--toggle{
+    display: none;
+    visibility: hidden;
+}
+
 .filter__container{
     flex-direction: column;
     padding-top: 24px;
@@ -577,8 +582,20 @@ footer{
 
 @media (max-width: 550px) {
     /*Set Filter input and listing to modal*/
-    #filters--fixed{
-        display: none;
+    .filters--row{
+        transform: translateX(200%);
+        transition: all 300ms ease;
+    }
+
+    .active .filters--row{
+        transform: translateX(0);
+    }
+
+    .filters--toggle{
+        padding-right: 8px;
+        font-size: 24px;
+        display: block;
+        visibility: visible;
     }
 
     .filter--icon{
@@ -604,6 +621,10 @@ footer{
 
     .modal .cards__container{
         transform: translateX(20%);
+    }
+
+    .active .cards__container{
+        transform: translateX(-20%);
     }
 
     #search{

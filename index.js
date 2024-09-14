@@ -104,6 +104,18 @@ function openFilters(){
     document.body.classList.toggle('modal');
     document.querySelector('.filter--icon').classList.toggle('fa-filter');
     document.querySelector('.filter--icon').classList.toggle('fa-x');
+    document.body.classList.remove('active');
+}
+
+function showActive(){
+    document.body.classList.toggle('active')
+    document.querySelector('.active--icon').classList.toggle('fa-circle-chevron-down');
+    document.querySelector('.active--icon').classList.toggle('fa-x');
+    document.body.classList.remove('modal')
+}
+
+function closeActive(){
+
 }
 
 function closeFilters(){
