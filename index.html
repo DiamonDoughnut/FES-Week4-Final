@@ -32,6 +32,14 @@
                             <button class="search--type search__type--cmc">Converted Mana Cost</button>
                             <button class="search--type search__type--id">Multiverse ID</button>
                         </div>
+                        <div class="search__types--dropdown">
+                            <select name="search--types" class="search--types">
+                                <option value="name=" class="search__option">Card Name</option>
+                                <option value="subtypes=" class="search__option">Subtype</option>
+                                <option value="cmc=" class="search__option">Converted Mana Cost</option>
+                                <option value="multiverseid=" class="search__option">Multiverse ID</option>
+                            </select>
+                        </div>
                         <div class="search__form">
                             <input type="text" class="search__form--entry" placeholder="Search by Card Name">
                             <button class="search__btn">Search</button>
@@ -51,6 +59,9 @@
             </div>
         </section>
         <section id="menu--fixed">
+            <div class="menu__button" onclick="openFilters()">
+                <i class="fa-solid fa-filter filter--icon"></i>
+            </div>
             <div class="row menu--row">
                 <div class="container menu--container">
                     <div class="colors__wrapper filter__wrapper">

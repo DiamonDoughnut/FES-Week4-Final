@@ -25,6 +25,8 @@ const typeSearch = document.querySelector('.search__type--subtype');
 const cmcSearch = document.querySelector('.search__type--cmc');
 const idSearch = document.querySelector('.search__type--id');
 
+const searchDropdown = document.querySelector('.search--types');
+
 const searchBar = document.querySelector('.search__form--entry');
 const searchBtn = document.querySelector('.search__btn');
 
@@ -82,7 +84,39 @@ idSearch.addEventListener('click', () => {
     searchType = 'multiverseid='
 });
 
+searchDropdown.addEventListener('change', () => {
+    searchBar.placeholder = searchDropdown.textContent;
+    if(searchDropdown.value === 'multiverseid='){
+        idSearch.click();
+    }
+    if(searchDropdown.value === 'cmc='){
+        cmcSearch.click();
+    }
+    if(searchDropdown.value === 'subtypes='){
+        typeSearch.click();
+    }
+    if(searchDropdown.value === 'name='){
+        nameSearch.click();
+    }
+})
+
+function openFilters(){
+    document.body.classList.toggle('modal');
+    document.querySelector('.filter--icon').classList.toggle('fa-filter');
+    document.querySelector('.filter--icon').classList.toggle('fa-x');
+}
+
+function closeFilters(){
+    document.body.classList.remove('modal');
+}
+
 searchBtn.addEventListener('click', () => {
+    
+    if(document.body.clientWidth <= 800){
+        searchType = searchDropdown.value;
+    }
+
+    console.log(searchType);
     console.log('run search');
     resultCards = 6;
     variableApi = mtgApi + searchType + searchBar.value;
