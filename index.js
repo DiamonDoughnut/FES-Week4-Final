@@ -62,6 +62,7 @@ filterBtn.addEventListener('click', () => {
     powerDropdown.value = 'null';
     toughnessDropdown.value = 'null';
     renderCards();
+    closeFilters();
 });
 
 nameSearch.addEventListener('click', () => {
@@ -104,18 +105,18 @@ function openFilters(){
     document.body.classList.toggle('modal');
     document.querySelector('.filter--icon').classList.toggle('fa-filter');
     document.querySelector('.filter--icon').classList.toggle('fa-x');
-    document.body.classList.remove('active');
+    closeActive();
 }
 
 function showActive(){
-    document.body.classList.toggle('active')
+    document.body.classList.toggle('active');
     document.querySelector('.active--icon').classList.toggle('fa-circle-chevron-down');
     document.querySelector('.active--icon').classList.toggle('fa-x');
-    document.body.classList.remove('modal')
+    closeFilters();
 }
 
 function closeActive(){
-
+    document.body.classList.remove('active');
 }
 
 function closeFilters(){
@@ -123,11 +124,8 @@ function closeFilters(){
 }
 
 searchBtn.addEventListener('click', () => {
-    
-    if(document.body.clientWidth <= 800){
-        searchType = searchDropdown.value;
-    }
-
+    closeActive();
+    closeFilters();
     console.log(searchType);
     console.log('run search');
     resultCards = 6;
@@ -142,6 +140,8 @@ loadBtn.addEventListener('click', () => {
     resultCards = 50;
     renderCards();
     loadBtn.style.display = 'none';
+    closeActive();
+    closeFilters();
 });
 
 const buildSearchQuery = () => {
