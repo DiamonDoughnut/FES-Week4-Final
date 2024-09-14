@@ -308,6 +308,10 @@ h1{
     width: 100%;
 }
 
+.filter--icon{
+    display: none;
+}
+
 .colors--name{
     text-align: center;
 }
@@ -579,6 +583,7 @@ footer{
     .filter--icon{
         padding-left: 8px;
         font-size: 24px;
+        display: block;
     }
 
     .menu--row{
