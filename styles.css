@@ -310,6 +310,7 @@ h1{
 
 .filter--icon{
     display: none;
+    visibility: hidden;
 }
 
 .colors--name{
@@ -584,6 +585,7 @@ footer{
         padding-left: 8px;
         font-size: 24px;
         display: block;
+        visibility: visible;
     }
 
     .menu--row{
